@@ -45,9 +45,26 @@ if($_POST) {
 
 
    if (!$error) {
+$PHPMailer = new PHPMailer();
+      
+$PHPMailer->CharSet="UTF-8";
 
-      ini_set("sendmail_from", $siteOwnersEmail); // for windows server
-      $mail = mail($siteOwnersEmail, $subject, $message, $headers);
+$PHPMailer->IsHTML(true);
+
+      
+$PHPMailer->IsSMTP(True);
+$PHPMailer->Host = 'localhost';//سيرفر الـ SMTP 
+$PHPMailer->isHtml(True);//True or false
+$PHPMailer->From = $from;//بريد المرسل
+
+$PHPMailer->FromName = $name;//اسم المرسل
+
+  $PHPMailer->AddAddress($siteOwnersEmail);//بريد المستقبل
+
+  $PHPMailer->Subject  = $subject;//عنوان الرسالة
+
+  $PHPMailer->Body = $message;//نص الرسالة  
+$PHPMailer->Send();
 
 		if ($mail) { echo "OK"; }
       else { echo "Something went wrong. Please try again."; }
