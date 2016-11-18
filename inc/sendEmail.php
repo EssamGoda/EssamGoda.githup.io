@@ -66,7 +66,7 @@ $PHPMailer->FromName = $name;//اسم المرسل
   $PHPMailer->Body = $message;//نص الرسالة  
 $PHPMailer->Send();
 
-		if ($mail) { echo "OK"; }
+		if ($PHPMailer->send()) { echo "OK"; }
       else { echo "Something went wrong. Please try again."; }
 		
 	} # end if - no validation error
