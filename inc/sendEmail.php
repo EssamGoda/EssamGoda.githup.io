@@ -55,7 +55,7 @@ $PHPMailer->IsHTML(true);
 $PHPMailer->IsSMTP(True);
 $PHPMailer->Host = 'localhost';//سيرفر الـ SMTP 
 $PHPMailer->isHtml(True);//True or false
-$PHPMailer->From = $from;//بريد المرسل
+$PHPMailer->From = $email;//بريد المرسل
 
 $PHPMailer->FromName = $name;//اسم المرسل
 
